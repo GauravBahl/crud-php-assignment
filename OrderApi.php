@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 header("Access-Control-Allow-Origin: *");
     $user_id = "";
 
-    $link = new mysqli('localhost','root','brazzer','krasnow_db') or die('Cannot connect to the DB');
+    $link = new mysqli('localhost','username','password','dbname') or die('Cannot connect to the DB');
     
     $query =  "SELECT id as orderId, order_date as dateOfOrder, product_name as productName FROM orders where email= '$user_id'";
     $result = $link->query($query) or die('Errant query:  '.$query);
