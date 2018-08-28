@@ -1,0 +1,40 @@
+<html>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.css">
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.js"></script>
+
+
+
+<table id="my-ajax-table">
+  <thead>
+    <th>orderId</th>
+    <th>dateOfOrder</th>
+    <th>productName</th>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+</html>
+
+<script>
+$.ajax({
+  //url: 'http://127.0.0.1:8080/KrasnowAssignment-1.0/orders?email=gbahl@gmu.edu',
+  url : "http://127.0.0.1:80/connection.php",
+  success: function(data){
+    $('#my-ajax-table').dynatable({
+      dataset: {
+      	records: data.orders
+      }
+    });
+  }
+});
+</script>
